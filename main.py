@@ -27,7 +27,7 @@ class SvxNotifierBot(discord.Client):
             BOT_LOG.error("Trying to send notification before connection!")
             return
 
-        msg = f"Nod {node.name} i {node.location} gick igång på kanal {node.talk_group} <@&{SVX_ROLE}>!!! "
+        msg = f"Nod **{node.name}** i **{node.location}** gick igång på kanal **{node.talk_group}** <@&{SVX_ROLE}>!!! "
         if time_since_last is not None:
             h = time_since_last // 3600
             m = (time_since_last % 3600) // 60
