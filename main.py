@@ -29,8 +29,8 @@ class SvxNotifierBot(discord.Client):
 
         msg = f"Nod **{node.name}** i **{node.location}** gick igång på talk group **{node.talk_group}** <@&{SVX_ROLE}>!!! "
         if time_since_last is not None:
-            h = time_since_last // 3600
-            m = (time_since_last % 3600) // 60
+            h = int(time_since_last / 3600)
+            m = int((time_since_last % 3600) / 60 + 0.5)
             msg += f"Denna station har inte sagt någonting på {h}:{m:02} minuter"
 
         await self.bot_ch.send(msg)
