@@ -65,7 +65,7 @@ class SvxNotifierBot(discord.Client):
         if time_since_last is not None:
             h = int(time_since_last / 3600)
             m = int((time_since_last % 3600) / 60 + 0.5)
-            msg += f"Denna station har inte sagt någonting på {h}:{m:02} minuter"
+            msg += f"Denna station har inte sagt någonting på {h}:{m:02}"
 
         await self.bot_ch.send(msg)
         BOT_LOG.info(f"Sent {msg!r}")
