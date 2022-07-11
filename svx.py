@@ -41,9 +41,11 @@ class Node:
 
     @staticmethod
     def from_json_obj(name: str, obj: Dict[str, object]) -> Node:
-        assert "nodeLocation" in obj or "NodeLocation" in obj
-        location = obj.get("nodeLocation", obj.get("NodeLocation", None))
-        assert isinstance(location, str)
+        if "nodeLocation" in obj or "NodeLocation" in obj:
+            location = obj.get("nodeLocation", obj.get("NodeLocation", None))
+            assert isinstance(location, str)
+        else:
+            location = "(okänd)"
 
         assert "monitoredTGs" in obj
         monitoring_talkgroups_ints = obj["monitoredTGs"]
